@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="warn" name="CompanyHierarchy">
+<Configuration status="warn" name="PersonioLogin">
 	<Appenders>
 
 		<RollingFile name="application"
-			fileName="./logs/company-hierarchy.log"
-			filePattern="./logs/company-hierarchy-%d{MM-dd-yyyy}.log.gz">
+			fileName="./logs/personio-login.log"
+			filePattern="./logs/personio-login-%d{MM-dd-yyyy}.log.gz">
 			<PatternLayout
 				pattern="%-5level %d{yyy-MM-dd HH:mm:ss.SSS} [%t] %C{1} - %msg%n" />
 			<Policies>
@@ -24,13 +24,5 @@
 			<AppenderRef ref="Console" level="info" />
 			<AppenderRef ref="application" level="info" />
 		</Root>
-<!--		<Logger name = "com.personio.companyhierarchy.controller"-->
-<!--			level="info">-->
-<!--			<AppenderRef ref="application" />-->
-<!--		</Logger>-->
-
-<!--		<Root level="info">-->
-<!--			<AppenderRef ref="Console" />-->
-<!--		</Root>-->
 	</Loggers>
 </Configuration>
