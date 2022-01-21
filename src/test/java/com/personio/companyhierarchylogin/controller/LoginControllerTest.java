@@ -26,6 +26,7 @@
 //@ExtendWith(SpringExtension.class)
 //@ActiveProfiles("test")
 //@WebMvcTest
+//@AutoConfigureMockMvc(addFilters = false)
 ////@DataJpaTest    // Will use the H2 memory database to execute the tests
 //public class LoginControllerTest {
 //
