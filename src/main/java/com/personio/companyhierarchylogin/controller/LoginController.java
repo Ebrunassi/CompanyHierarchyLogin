@@ -4,6 +4,9 @@ import com.personio.companyhierarchylogin.dto.AccountDTO;
 import com.personio.companyhierarchylogin.dto.ResponseDTO;
 import com.personio.companyhierarchylogin.model.Account;
 import com.personio.companyhierarchylogin.repository.AccountRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.modelmapper.ModelMapper;
@@ -11,13 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
 
+@Tag(name = "Login Controller")
 @RestController
 @RequestMapping("/personio")
 @EnableAutoConfiguration
@@ -28,6 +31,11 @@ public class LoginController {
     private ModelMapper modelMapper = new ModelMapper();
     Logger logger = LogManager.getLogger();
 
+    @Operation(description = "Receives a JSON containing the username and password of a new user in order to be saved in database",
+    responses = {
+            @ApiResponse(responseCode = "201", description = "Created successfully"),
+            @ApiResponse(responseCode = "400", description = "There is already one user with the same username")
+    })
     @PostMapping(value = "/register", produces = "application/json")
     public ResponseEntity<ResponseDTO> registerAccount(@RequestBody @Valid AccountDTO accountDTO){
         logger.info("Registering new account with login '{}'", accountDTO.getUsername());

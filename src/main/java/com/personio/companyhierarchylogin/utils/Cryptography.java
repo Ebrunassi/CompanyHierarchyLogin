@@ -4,9 +4,9 @@ import java.math.BigInteger;
 
 public class Cryptography {
     private static Cryptography cripto;
-    private static BigInteger p;	// Primo 1
-    private static BigInteger q;	// Primo 2
-    private static BigInteger n;	// Primo 1 * Primo 2
+    private static BigInteger p;	// Prime 1
+    private static BigInteger q;	// Prime 2
+    private static BigInteger n;	// Prime 1 * Prime 2
     private static BigInteger e;
 
     public static Cryptography getInstance() {
@@ -22,7 +22,7 @@ public class Cryptography {
         n = new BigInteger("105428096325879598794323277910310119355955408860312998768234869030926745593557817842028752743553457887511326980550238127254315605808886671494416082925713041986222486139713681579623054670975648273418593028787925151414301358873695894001133160823557498848295296182984516512401446903573915925951601153193949863431");
     }
 
-    public String encode(String senha) {
-        return new BigInteger(senha.getBytes()).modPow(e, n).toString();
+    public String encode(String password) {
+        return new BigInteger(password.getBytes()).modPow(e, n).toString();
     }
 }

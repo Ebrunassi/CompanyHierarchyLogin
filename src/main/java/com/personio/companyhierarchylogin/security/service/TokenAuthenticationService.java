@@ -43,7 +43,6 @@ public class TokenAuthenticationService {
         try {
             String token = request.getHeader(HEADER_STRING);
             if (token != null) {
-                // faz parse do token
                 String user = Jwts.parser()
                         .setSigningKey(SECRET)
                         .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))

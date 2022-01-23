@@ -3,10 +3,6 @@ package com.personio.companyhierarchylogin.security.encoder;
 import com.personio.companyhierarchylogin.utils.Cryptography;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 public class AuthPasswordEncoder implements PasswordEncoder {
 
     @Override
